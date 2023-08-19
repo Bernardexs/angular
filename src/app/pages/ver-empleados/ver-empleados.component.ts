@@ -8,9 +8,22 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class VerEmpleadosComponent {
   empleados!:any
+  rol!:any
   constructor(private apiService:ApiService){
+      this.getAsistencias()
+    this.rol=localStorage.getItem('rol')
+  }
+  getAsistencias(){
     this.apiService.getAsistencias().subscribe((data)=>{
       this.empleados=data.asistencias
+    })
+  }
+  eliminarRegistro(id:any){
+    this.apiService.deleteAsistencias(id).subscribe((data)=>{
+      this.getAsistencias()
+
+    },()=>{
+      alert('ocurrio un error')
     })
   }
 }

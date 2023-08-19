@@ -33,6 +33,9 @@ export class ApiService {
   createAsistencias(body:any): Observable<any> {
     return this.http.post<any>(this.api + 'asistencias',body);
   }
+  deleteAsistencias(id:any): Observable<any> {
+    return this.http.delete<any>(this.api + 'asistencias/'+id);
+  }
 
 
 }

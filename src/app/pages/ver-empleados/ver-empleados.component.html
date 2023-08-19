@@ -15,10 +15,18 @@
         </tr>
       </thead>
       <tbody *ngIf="empleados">
-        <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+        <tr *ngFor="let empleado of empleados">
+          <td> {{empleado.empleado.usuario.nombre}} {{empleado.empleado.usuario.apellido}} </td>
+          <td> {{empleado.empleado.puesto.nombre}} </td>
+          <td> {{empleado.empleado.salario.salario}} </td>
+          <td> {{empleado.fecha}} </td>
+          <td> {{empleado.hora_entrada}} </td>
+          <td> {{empleado.hora_salida}} </td>
+          <td> {{empleado.horas_extra}} </td>
+          <td> {{empleado.horas_trabajadas}} </td>
+          <td>
+          <button class="btn btn-outline-danger" *ngIf="rol==='admin'" (click)="eliminarRegistro(empleado.id)">eliminar</button>
+          </td>
         </tr>
 
       </tbody>
