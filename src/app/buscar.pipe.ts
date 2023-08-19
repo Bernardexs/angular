@@ -15,7 +15,7 @@ export class BuscarPipe implements PipeTransform {
 
     return items.filter(item => {
       console.log(item)
-      const fullName = `${item.empleado.usuario.nombre} ${item.empleado.usuario.apellido}`.toLowerCase();
+      const fullName = `${item.empleado.usuario.nombre} ${item.empleado.usuario.apellido} ${item.empleado.puesto.nombre} ${item.empleado.salario.salario}`.toLowerCase();
       return fullName.includes(searchText.toLowerCase());
     });
   }
