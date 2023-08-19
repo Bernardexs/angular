@@ -8,6 +8,7 @@ import { CreateEmpleadoComponent } from './pages/create-empleado/create-empleado
 import { VerEmpleadosComponent } from './pages/ver-empleados/ver-empleados.component';
 import { AuthGuard } from './guard/auth.guard';
 import { NavComponent } from './pages/nav/nav.component';
+import { ProtegerGuard } from './guard/proteger.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate:[ProtegerGuard]
   },
   {
     path: 'dashboard',
