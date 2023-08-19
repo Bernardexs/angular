@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-5 mx-auto mt-5">
+    <img src="https://keepersecurity.com/console/resources/css/img/undraw_programming_2svr@2x.png" alt="" class="d-block w-50 mx-auto">
+    <form [formGroup]="FormLogin" (submit)="login(FormLogin.value)" class="mt-5">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="email"
+        />
+          <span
+            *ngIf="FormLogin.get('email')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            Correo Electrónico Requerido.</span
+          >
+        <span
+          *ngIf="FormLogin.get('email')?.hasError('email')"
+          style="color: #f39c12"
+        >
+          Se requiere un correo valido.
+        </span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+
+          id="exampleInputPassword1"
+        />
+
+          <span
+            *ngIf="FormLogin.get('password')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            Contraseña Requerido.</span
+          >
+
+          <span
+            *ngIf="FormLogin.get('password')?.hasError('minlength')"
+            style="color: #f39c12"
+          >
+            Minimo 8 caracteres</span
+          >
+          <span
+            *ngIf="FormLogin.get('password')?.hasError('maxlength')"
+            style="color: #f39c12"
+          >
+            Maximo 16 caracteres</span
+          >
+      </div>
+
+      <button type="submit" [disabled]="FormLogin.invalid"  class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>

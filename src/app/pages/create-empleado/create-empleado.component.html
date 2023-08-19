@@ -1,0 +1,245 @@
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <form [formGroup]="loginForm" (submit)="crear(loginForm.value)">
+      <h2 class="text-center">Resgitrar trabajador</h2>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"> <strong>Nombres: </strong></label>
+        <input
+          formControlName="nombre"
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div
+          *ngIf="
+            loginForm.get('nombre')?.invalid && loginForm.get('nombre')?.touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('nombre')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            campo Requerido.</span
+          >
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><strong>Apellidos:</strong> </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="apellido"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div
+          *ngIf="
+            loginForm.get('apellido')?.invalid &&
+            loginForm.get('apellido')?.touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('apellido')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            campo Requerido.</span
+          >
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><strong>cedula: </strong></label>
+        <input
+          type="text"
+          formControlName="cedula"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div
+          *ngIf="
+            loginForm.get('cedula')?.invalid &&
+            loginForm.get('cedula')?.touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('cedula')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            campo Requerido.</span
+          >
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><strong>Dirección: </strong></label>
+        <input
+          type="text"
+          formControlName="direccion"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div
+          *ngIf="
+            loginForm.get('direccion')?.invalid &&
+            loginForm.get('direccion')?.touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('direccion')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            campo Requerido.</span
+          >
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><strong>Email:</strong></label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="email"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div
+          *ngIf="
+            loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('email')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            campo Requerido.</span
+          >
+          <span
+            *ngIf="loginForm.get('email')?.hasError('email')"
+            style="color: #f39c12"
+          >
+            campo debe ser tipo email.</span
+          >
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"> <strong>Password:</strong></label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          id="exampleInputPassword1"
+        />
+        <div
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('password')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            campo Requerido.</span
+          >
+          <span
+            *ngIf="loginForm.get('password')?.hasError('minlength')"
+            style="color: #f39c12"
+          >
+            minimo 5 caracteres.</span
+          >
+          <span
+            *ngIf="loginForm.get('password')?.hasError('maxlength')"
+            style="color: #f39c12"
+          >
+            maximo 15 caracteres.</span
+          >
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          ><strong>Fecha contratación:</strong></label
+        >
+        <input
+          formControlName="fecha_contratacion"
+          type="date"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+        <div
+          *ngIf="
+            loginForm.get('fecha_contratacion')?.invalid &&
+            loginForm.get('fecha_contratacion')?.touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('fecha_contratacion')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            campo Requerido.</span
+          >
+        </div>
+      </div>
+
+      <div class="mb-3" *ngIf="roles">
+        <label><strong>Rol:</strong></label>
+        <select formControlName="rol_id" class="form-select" name="" id="">
+          <option [value]="rol.id" *ngFor="let rol of roles"> {{rol.nombre}} </option>
+        </select>
+        <div
+          *ngIf="
+            loginForm.get('rol_id')?.invalid &&
+            loginForm.get('rol_id')?.touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('rol_id')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            campo Requerido.</span
+          >
+        </div>
+      </div>
+      <div class="mb-3" *ngIf="puestos">
+        <label><strong>Puesto</strong></label>
+        <select formControlName="puesto_id" class="form-select" name="" id="">
+          <option [value]="puesto.id" *ngFor="let puesto of puestos"> {{puesto.nombre}} </option>
+        </select>
+        <div
+        *ngIf="
+          loginForm.get('puesto_id')?.invalid &&
+          loginForm.get('puesto_id')?.touched
+        "
+      >
+        <span
+          *ngIf="loginForm.get('puesto_id')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          campo Requerido.</span
+        >
+      </div>
+      </div>
+      <div class="mb-3" *ngIf="salarios">
+        <label><strong>Salario</strong></label>
+        <select formControlName="puesto_id" class="form-select" name="" id="">
+          <option [value]="salario.id" *ngFor="let salario of salarios"> {{salario.salario}} </option>
+        </select>
+        <div
+        *ngIf="
+          loginForm.get('salario_id')?.invalid &&
+          loginForm.get('salario_id')?.touched
+        "
+      >
+        <span
+          *ngIf="loginForm.get('salario_id')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          campo Requerido.</span
+        >
+      </div>
+      </div>
+
+      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Crear</button>
+    </form>
+  </div>
+</div>
