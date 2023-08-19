@@ -41,18 +41,7 @@
             Contraseña Requerido.</span
           >
 
-          <span
-            *ngIf="FormLogin.get('password')?.hasError('minlength')"
-            style="color: #f39c12"
-          >
-            Minimo 8 caracteres</span
-          >
-          <span
-            *ngIf="FormLogin.get('password')?.hasError('maxlength')"
-            style="color: #f39c12"
-          >
-            Maximo 16 caracteres</span
-          >
+
       </div>
 
       <button type="submit" [disabled]="FormLogin.invalid"  class="btn btn-primary">Login</button>

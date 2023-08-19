@@ -1,1 +1,92 @@
-<p>asignar-horas works!</p>
+<div class="row">
+  <div class="col-md-5 mx-auto">
+    <form [formGroup]="loginForm" (submit)="crear(loginForm.value)">
+      <h2 class="text-center">Registro</h2>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          ><strong>Empleado:</strong></label
+        >
+        <select formControlName="empleado_id" class="form-select" name="" id="">
+          <option
+            [value]="trabajador?.id"
+            *ngFor="let trabajador of trabajadores"
+          >
+            {{ trabajador.usuario.nombre | titlecase }} -
+            {{ trabajador.usuario.apellido | titlecase }}
+          </option>
+        </select>
+
+          <span
+            *ngIf="loginForm.get('empleado_id')?.hasError('required')"
+            style="color: #ffbf29"
+          >
+            Campo requerido.</span
+          >
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          ><strong>Hora entrada:</strong>
+        </label>
+        <input
+          type="time"
+          class="form-control"
+          formControlName="hora_entrada"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+
+          <span
+            *ngIf="loginForm.get('hora_entrada')?.hasError('required')"
+            style="color: #ffbf29"
+          >
+            Campo requerido.</span
+          >
+        </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          ><strong>Hora salida:</strong></label
+        >
+        <input
+          type="time"
+          class="form-control"
+          formControlName="hora_salida"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+
+          <span
+            *ngIf="loginForm.get('hora_salida')?.hasError('required')"
+            style="color: #ffbf29"
+          >
+            Campo requerido.</span
+          >
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          ><strong>fecha:</strong></label
+        >
+        <input
+          type="date"
+          class="form-control"
+          formControlName="fecha"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+
+          <span
+            *ngIf="loginForm.get('fecha')?.hasError('required')"
+            style="color: #ffbf29"
+          >
+            Campo requerido.</span
+          >
+      </div>
+      <button
+        [disabled]="loginForm.invalid"
+        type="submit"
+        class="btn btn-primary"
+      >
+        <strong>Asignar</strong>
+      </button>
+    </form>
+  </div>
+</div>

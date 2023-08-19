@@ -16,7 +16,7 @@ export class LoginComponent {
   buildForm() {
     this.FormLogin = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required,Validators.minLength(8),Validators.maxLength(16)]],
+      password: ['', [Validators.required]],
     });
   }
   login(form: any) {
@@ -27,7 +27,6 @@ export class LoginComponent {
       );
       return;
     } else {
-      console.log('peticion')
       this.authService.login(form).subscribe((data) => {
         this.authService.setToken(data.access_token);
         this.router.navigate(['dashboard/home']);

@@ -25,13 +25,13 @@ export class ApiService {
     return this.http.get<any>(this.api + 'empleados');
   }
   createEmpleados(body:any): Observable<any> {
-    return this.http.get<any>(this.api + 'empleados',body);
+    return this.http.post<any>(this.api + 'empleados',body);
   }
   getAsistencias(): Observable<any> {
     return this.http.get<any>(this.api + 'asistencias');
   }
   createAsistencias(body:any): Observable<any> {
-    return this.http.get<any>(this.api + 'asistencias',body);
+    return this.http.post<any>(this.api + 'asistencias',body);
   }
 
 

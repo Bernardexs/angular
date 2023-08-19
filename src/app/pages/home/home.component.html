@@ -1,36 +1,51 @@
-<div class="row gap-5 mt-5"  *ngIf="rol=='admin'||rol=='supervisor'">
+<div class="row">
   <div class="col-md-3 click">
-    <div class="card" [routerLink]="['/dashboard/crear-empleado']" routerLinkActive="router-link-active" >
+    <div
+    *ngIf="rol=='admin'||rol=='supervisor'"
+      class="card"
+      [routerLink]="['/dashboard/crear-empleado']"
+      routerLinkActive="router-link-active"
+    >
       <h5 class="card-header">Funcion</h5>
       <div class="card-body">
         <h5 class="card-title">Crear</h5>
         <p class="card-text">Crear trabajadores</p>
       </div>
     </div>
-
-
   </div>
-  <div class="col-md-3 click" *ngIf="rol=='admin'||rol=='supervisor'">
-    <div class="card" [routerLink]="['/dashboard/asignar']" routerLinkActive="router-link-active" >
+  <div class="col-md-3 click" *ngIf="rol == 'admin' || rol == 'supervisor'">
+    <div
+      class="card"
+      [routerLink]="['/dashboard/asignar']"
+      routerLinkActive="router-link-active"
+    >
       <h5 class="card-header">Funcion</h5>
       <div class="card-body">
         <h5 class="card-title">Asignar</h5>
         <p class="card-text">asignar horas a trabajadores</p>
       </div>
     </div>
-
   </div>
+
   <div class="col-md-3 click">
-    <div class="card" [routerLink]="['/dashboard/ver-empleados']" routerLinkActive="router-link-active" >
+    <div
+      class="card"
+      [routerLink]="['/dashboard/ver-empleados']"
+      routerLinkActive="router-link-active"
+    >
       <h5 class="card-header">Funcion</h5>
       <div class="card-body">
         <h5 class="card-title">Ver</h5>
-        <p class="card-text">Ver reporte de  trabajadores</p>
+        <p class="card-text">Ver reporte de trabajadores</p>
       </div>
     </div>
   </div>
   <div class="col-md-3 click">
-    <div class="card" [routerLink]="['/dashboard/perfil']" routerLinkActive="router-link-active" >
+    <div
+      class="card"
+      [routerLink]="['/dashboard/perfil']"
+      routerLinkActive="router-link-active"
+    >
       <h5 class="card-header">Funcion</h5>
       <div class="card-body">
         <h5 class="card-title">Perfil</h5>
@@ -38,4 +53,5 @@
       </div>
     </div>
   </div>
+
 </div>
