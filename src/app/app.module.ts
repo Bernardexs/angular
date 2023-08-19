@@ -16,6 +16,7 @@ import { AsignarHorasComponent } from './pages/asignar-horas/asignar-horas.compo
 import { VerEmpleadosComponent } from './pages/ver-empleados/ver-empleados.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BuscarPipe } from './buscar.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     PerfilComponent,
     CreateEmpleadoComponent,
     AsignarHorasComponent,
-    VerEmpleadosComponent
+    VerEmpleadosComponent,
+    BuscarPipe
   ],
   imports: [
     BrowserModule,

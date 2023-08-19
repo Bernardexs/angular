@@ -1,4 +1,9 @@
-<div class="row">
+<div class="row mt-5">
+  <div class="mb-3 col-md-5 mx-auto">
+    <label for="exampleInputEmail1" class="form-label"> Buscar por nombres y apellidos</label>
+    <input [(ngModel)]="search" type="text" placeholder="Buscar..." class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+  </div>
   <div class="col-md-10 mx-auto">
     <table class="table">
       <thead>
@@ -15,7 +20,7 @@
         </tr>
       </thead>
       <tbody *ngIf="empleados">
-        <tr *ngFor="let empleado of empleados">
+        <tr *ngFor="let empleado of empleados|buscar:search">
           <td> {{empleado.empleado.usuario.nombre}} {{empleado.empleado.usuario.apellido}} </td>
           <td> {{empleado.empleado.puesto.nombre}} </td>
           <td> {{empleado.empleado.salario.salario}} </td>

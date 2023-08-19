@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class VerEmpleadosComponent {
   empleados!:any
   rol!:any
+  search:any;
   constructor(private apiService:ApiService){
       this.getAsistencias()
     this.rol=localStorage.getItem('rol')
